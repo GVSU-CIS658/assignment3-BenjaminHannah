@@ -16,13 +16,62 @@
           </label>
         </template>
       </li>
+      <li>
+        <template v-for="base in bases" :key="base.id">
+          <input
+              type="radio"
+              name="base"
+              :id="base.id"
+              :value="base"
+              v-model="currentBase"
+            />
+            {{ base.name }}
+        </template>
+      </li>
+      <li>
+        <template v-for="syrup in syrups" :key="syrup.id">
+          <input
+              type="radio"
+              name="syrup"
+              :id="syrup.id"
+              :value="syrup"
+              v-model="currentSyrup"
+            />
+            {{ syrup.name }}
+        </template>
+      </li>
+      <li>
+        <template v-for="creamer in creamers" :key="creamer.id">
+          <input
+              type="radio"
+              name="creamer"
+              :id="creamer.id"
+              :value="creamer"
+              v-model="currentCreamer"
+            />
+            {{ creamer.name }}
+        </template>
+      </li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
+//
+/*export type { BaseBeverageType, CreamerType, SyrupType };
+export { temps, bases, creamers, syrups };
+export { currentTemp };*/
+//
 import Beverage from "./components/Beverage.vue";
+import { BaseBeverageType } from "./stores/beverage";
+import { CreamerType } from "./stores/beverage";
+import { SyrupType } from "./stores/beverage";
+
 import { temps, currentTemp } from "./stores/beverage";
+import { bases, currentBase } from "./stores/beverage";
+import { creamers, currentCreamer } from "./stores/beverage";
+import { syrups, currentSyrup } from "./stores/beverage";
+
 </script>
 
 <style lang="scss">
